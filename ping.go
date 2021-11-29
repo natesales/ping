@@ -232,6 +232,9 @@ type Packet struct {
 
 	// TTL is the Time To Live on the packet.
 	Ttl int
+
+	// Id is the ICMP identifier.
+	Id int
 }
 
 // Statistics represent the stats of a currently running or finished
@@ -651,6 +654,7 @@ func (p *Pinger) processPacket(recv *packet) error {
 		IPAddr: p.ipaddr,
 		Addr:   p.addr,
 		Ttl:    recv.ttl,
+		Id:     p.id,
 	}
 
 	switch pkt := m.Body.(type) {
