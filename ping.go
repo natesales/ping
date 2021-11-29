@@ -385,6 +385,16 @@ func (p *Pinger) SetLogger(logger Logger) {
 	p.logger = logger
 }
 
+// SetID sets the ICMP identifier
+func (p *Pinger) SetID(id int) {
+	p.id = id
+}
+
+// ID returns the ICMP identifier
+func (p *Pinger) ID() int {
+	return p.id
+}
+
 // Run runs the pinger. This is a blocking function that will exit when it's
 // done. If Count or Interval are not specified, it will run continuously until
 // it is interrupted.
